@@ -85,7 +85,13 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
             const SizedBox(height: 12),
             TextField(
               controller: amountCtrl,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.numberWithOptions(decimal: true),
+
+  inputFormatters: [
+
+    FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*')),
+
+  ],
               decoration: InputDecoration(
                 labelText: 'Amount (\$)',
                 border: OutlineInputBorder(borderRadius: _borderRadius),

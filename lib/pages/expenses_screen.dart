@@ -227,7 +227,7 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
             const SizedBox(height: 12),
             TextField(
               controller: _amountController,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.numberWithOptions(decimal: true),
               decoration: InputDecoration(
                 labelText: 'Amount (\$)',
                 labelStyle: GoogleFonts.poppins(),

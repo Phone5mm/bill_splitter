@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -226,9 +227,12 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
             ),
             const SizedBox(height: 12),
             TextField(
-              controller: _amountController,
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
-              decoration: InputDecoration(
+  controller: _amountController,
+  keyboardType: TextInputType.numberWithOptions(decimal: true),
+  inputFormatters: [
+    FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*')),
+  ],
+  decoration: InputDecoration(
                 labelText: 'Amount (\$)',
                 labelStyle: GoogleFonts.poppins(),
                 border: OutlineInputBorder(borderRadius: _borderRadius),
